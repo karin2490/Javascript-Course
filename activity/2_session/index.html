@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../../prism.css">
 </head>
 
+
 <body>
     <div class="container">
         <div class="section">
@@ -117,6 +118,7 @@ let logbad = new Login(“pepe”, “bad”) // alert -&gt; <span class="hljs-k
 
 // Ejercicio 5
 
+
 // Ejercicio 6
 
 let loginWitUsername = (username, password) => {
@@ -135,8 +137,67 @@ let loginWitUsername = (username, password) => {
         </div>
     </div>
     <script src="../../prism.js"></script>
-    <script src="index.js">
-    </script>
+    <script src="index.js"></script>
+
+<script>
+    // Ejercicio 5
+    console.log("Ejercicio 5");
+    class Login1 {
+  constructor(username, password) {
+    this.username = username;
+    this.password = password;
+  }
+
+ login() {
+    if (this.username === 'admin' && this.password === 'passwd') {
+      alert('Usuario logeado');
+    } else {
+      alert('Usuario o contraseña incorrectos');
+    }
+  }
+}
+
+// Event listener para el botón loginSuccess
+document.getElementById('loginSuccess').addEventListener('click', () => {
+  // Crear objeto login con credenciales correctas
+  const login = new Login1('admin', 'passwd');
+  login.login(); 
+});
+
+// Event listener para el botón loginFailure
+document.getElementById('loginFailure').addEventListener('click', () => {
+  // Crear objeto login con credenciales incorrectas
+  const login = new Login1('pepe', 'bad');
+  login.login(); 
+});
+
+
+// Ejercicio 6
+console.log("Ejercicio 6");
+
+document.getElementById('loginSuccessAsync').addEventListener('click', async () => {
+  try {
+    // Llamar a la función asíncrona y esperar su resultado
+    const result = await loginWitUsername('admin', 'passwd');
+    alert(result); // Mostrar mensaje de éxito
+  } catch (error) {
+    alert(error); // Mostrar mensaje de error
+  }
+});
+
+document.getElementById('loginFailureAsync').addEventListener('click', async () => {
+  try {
+    // Llamar a la función asíncrona y esperar su resultado
+    const result = await loginWitUsername('pepe', 'bad');
+    alert(result); // Mostrar mensaje de éxito
+  } catch (error) {
+    alert(error); // Mostrar mensaje de error
+  }
+});
+
+</script>
+
+
 </body>
 
 </html>
